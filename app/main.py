@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-origins = ["*"]  #[]"https://www.google.com","https://www.youtube.com"]  #good practice to limit this
+origins = ["*"]  #[]"https://www.google.com","https://www.youtube.com"]  #good practice to limit this to just webapp that is going to require access to API
 
 app.add_middleware(
     CORSMiddleware,
@@ -27,5 +27,5 @@ app.include_router(vote.router)
 
 @app.get("/")
 def root():
-    return {"message": "Hello World"}
+    return {"message": "Hello World1234"}
 
