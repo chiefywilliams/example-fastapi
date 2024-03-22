@@ -37,6 +37,6 @@ class Vote(Base):
 class Rank(Base):
     __tablename__ = "rank"
 
-    rank_id = Column(String, primary_key = True, nullable = False)
+    rank_id = Column(Integer, primary_key = True, nullable = False)
     rank_name = Column(String, nullable = False)
     rank_nato_equiv = Column(String, nullable = False)

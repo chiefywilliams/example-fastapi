@@ -8,9 +8,8 @@ from sqlalchemy import func
 
 router = APIRouter(prefix="/ranks", tags = ['Ranks'])
 
-
 @router.post("/",status_code=status.HTTP_201_CREATED, response_model = schemas.Rank)
-def create_posts(post:schemas.Rank, db: Session = Depends(get_db)): # , current_user: int = Depends(oauth2.get_current_user)):
+def create_posts(post:schemas.RankCreate, db: Session = Depends(get_db)): # , current_user: int = Depends(oauth2.get_current_user)):
     #new_post = models.Post(title = post.title, content = post.content, published = post.published)
 
     #print(current_user.id)
