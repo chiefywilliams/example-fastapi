@@ -9,17 +9,12 @@ from sqlalchemy import func
 router = APIRouter(prefix="/ranks", tags = ['Ranks'])
 
 @router.post("/",status_code=status.HTTP_201_CREATED, response_model = schemas.Rank)
-def create_posts(post:schemas.RankCreate, db: Session = Depends(get_db)): # , current_user: int = Depends(oauth2.get_current_user)):
-    #new_post = models.Post(title = post.title, content = post.content, published = post.published)
+def create_posts(rank:schemas.RankCreate, db: Session = Depends(get_db)): # , current_user: int = Depends(oauth2.get_current_user)):
 
-    #print(current_user.id)
-    new_rank = models.Rank(**post.dict())
+    new_rank = models.Rank(**rank.dict())
     db.add(new_rank)
     db.commit()
     db.refresh(new_rank)
-    #cursor.execute("""INSERT INTO posts (title, content, published) VALUES (%s,%s,%s) RETURNING *""", (post.title, post.content, post.published))  #this eway prevents SQL Injection
-    #post = cursor.fetchone()
-    #conn.commit()
     return new_rank
 '''
 @router.get("/", response_model = List[schemas.PostOut])
