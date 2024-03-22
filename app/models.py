@@ -33,3 +33,10 @@ class Vote(Base):
 
     user_id = Column(Integer, ForeignKey("users.id", ondelete = "CASCADE"),primary_key=True)
     post_id = Column(Integer, ForeignKey("posts.id", ondelete = "CASCADE"),primary_key=True)
+
+class Rank(Base):
+    __tablename__ = "rank"
+
+    rank_id = Column(Integer, primary_key = True, nullable = False)
+    rank_name = Column(String, nullable = False)
+    rank_nato_equiv = Column(String, nullable = False)
