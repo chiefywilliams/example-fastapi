@@ -75,7 +75,7 @@ class Vote(BaseModel):
     dir: int #conint(le=1)
 
 class Rank(BaseModel):
-    rank_id: int
+    rank_id: str
     rank_name: str
     rank_nato_equiv: str 
 
